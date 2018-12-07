@@ -5,14 +5,7 @@ from pyspark.mllib.feature import Word2Vec
 import jieba
 import re
 
-#Hello world
 # os.environ['PYSPARK_SUBMIT_ARGS'] = "--master mymaster --total-executor 2 --conf "
-def merge(list):
-    result = []
-    for x in range(len(list)):
-        result.extend(list[x])
-    list.clear()
-    return result
 
 
 def split(line):
@@ -29,12 +22,6 @@ def split(line):
             for i_word in word:
                 ls.append(i_word)
     return ls
-
-
-def combine(line):  # 去除保存结果中的括号和解=解决中文编码显示的问题
-    result = ""
-    result += line[0] + "\t" + str(line[1])  # 让数字在前，方便统计
-    return result
 
 
 def main(sc):
@@ -72,7 +59,7 @@ def main(sc):
 
 
 if __name__ == "__main__":
-    conf = SparkConf().setAppName("CharEmbedding")
+    conf = SparkConf().setAppName("Count_doc_withwikiskills")
     conf.setMaster("local[5]")
     sc = SparkContext(conf=conf)
     main(sc)
