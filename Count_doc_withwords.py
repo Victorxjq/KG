@@ -5,7 +5,7 @@ from pyspark.mllib.feature import Word2Vec
 import jieba
 import re
 
-#test words
+#delete words
 # os.environ['PYSPARK_SUBMIT_ARGS'] = "--master mymaster --total-executor 2 --conf "
 def merge(list):
     result = []
